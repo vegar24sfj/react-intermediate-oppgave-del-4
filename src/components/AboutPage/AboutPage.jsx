@@ -7,7 +7,7 @@ const AboutPage = () => {
         About Me
       </h2>
 
-      <div className="text-left max-w-2xl mx-auto text-lg md:text-2xl mb-8 text-[var(--text-primary)]">
+      <div className="text-left max-w-2xl mx-auto text-lg md:text-2xl mb-0 text-[var(--text-primary)]">
         <p className="mb-8">
           Hello! I’m a frontend developer with a passion for 3D design and web
           development. I specialize in creating visually stunning, user-friendly
