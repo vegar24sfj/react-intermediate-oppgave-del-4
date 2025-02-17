@@ -1,0 +1,20 @@
+@import url('https://fonts.googleapis.com/css2?family=Roboto:wght@400;500;700&display=swap');
+
+@import "tailwindcss";
+
+:root {
+  --primary: #345ad4; /* Primary color */
+  --secondary: #819bed; /* Secondary color */
+  --accent: #d8d8d8; /* Accent color */
+  --text-primary: #0a0a0a; /* Primary text color */
+  --text-secondary: #333333; /* Secondary text color */
+  --bg-primary: #ffffff; /* Background color */
+  --bg-secondary: #edf2f7; /* Secondary background color */
+
+  --header-height: 76px; /* Replace with the actual height of your header */
+}
+
+body {
+  font-family: 'Roboto', sans-serif;
+  
+}
