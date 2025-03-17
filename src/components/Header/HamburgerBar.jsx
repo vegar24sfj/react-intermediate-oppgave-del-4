@@ -1,8 +1,8 @@
 import React, { useEffect, useRef, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseSharp } from "react-icons/io5";
-import { MENU_LIST } from "../../data/menu_data"; // Import MENU_LIST from data
-import NavItem from "./NavItem"; // Import NavItem component
+import { MENU_LIST } from "../../data/menu_data";
+import NavItem from "./NavItem";
 
 const HamburgerBar = ({ scrollToSection, toggleMenu, menuOpen }) => {
   const menuRef = useRef(null);

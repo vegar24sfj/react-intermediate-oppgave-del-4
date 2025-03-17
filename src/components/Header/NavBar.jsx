@@ -1,11 +1,11 @@
 import React from "react";
-import { MENU_LIST } from "../../data/menu_data"; // Import MENU_LIST from data
-import NavItem from "./NavItem"; // Import NavItem component
+import { MENU_LIST } from "../../data/menu_data";
+import NavItem from "./NavItem";
 
 const NavBar = ({ scrollToSection }) => {
   return (
-    <nav className="hidden md:flex">
-      <ul className="flex space-x-12">
+    <nav className="hidden md:flex w-full">
+      <ul className="flex space-x-8 w-full justify-center">
         {/* Dynamically render NavItems using MENU_LIST */}
         {MENU_LIST.map((item, index) => (
           <NavItem

@@ -1,5 +1,5 @@
 import React from "react";
-import { useContact } from "./ContactContext"; // Import the useContact hook
+import { useContact } from "./ContactContext";
 import { InputField } from "./InputFields";
 
 export default function ContactForm() {
