@@ -44,7 +44,7 @@ export default function ContactForm() {
     >
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-5xl flex flex-col justify-center mx-auto bg-[var(--bg-primary)] rounded-md px-6 py-6 mb-0" // Set background for the form itself
+        className="w-full max-w-5xl flex flex-col justify-center mx-auto bg-[var(--bg-primary)] rounded-md px-6 mb-0" // Set background for the form itself
       >
         {status && (
           <div
