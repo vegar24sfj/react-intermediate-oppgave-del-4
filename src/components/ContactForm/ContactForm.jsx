@@ -44,26 +44,21 @@ export default function ContactForm() {
     >
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-5xl flex flex-col justify-center mx-auto bg-[var(--bg-primary)] rounded-md px-6 mb-0" // Set background for the form itself
+        className="w-full max-w-3xl flex flex-col justify-center mx-auto bg-[var(--bg-primary)] rounded-md px-6 mb-0" // Adjust max width to 3xl
       >
         {status && (
           <div
-            className={`p-3 mb-4 rounded-md ${
-              status.startsWith("Your message")
-                ? "text-green-800 bg-green-100"
-                : "text-red-800 bg-red-100"
-            }`}
+            className={`p-3 mb-4 rounded-md ${status.startsWith("Your message") ? "text-green-800 bg-green-100" : "text-red-800 bg-red-100"}`}
           >
             {status}
           </div>
         )}
 
-        <h2 className="text-[var(--text-primary)] text-2xl md:text-3xl font-bold mb-6 text-center">
+        <h2 className="text-[var(--primary)] text-2xl md:text-3xl font-bold mb-6 text-center">
           Contact Me
         </h2>
 
         {/* Message */}
-
         <textarea
           name="message"
           placeholder="Your message"
@@ -104,7 +99,6 @@ export default function ContactForm() {
         </div>
 
         {/* Subject */}
-
         <input
           type="text"
           name="subject"

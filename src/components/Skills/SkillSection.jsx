@@ -8,7 +8,7 @@ const SkillSection = () => {
       {" "}
       {/* Added scroll ID here */}
       <div className="container mx-auto text-center">
-        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-[var(--text-primary)]">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-[var(--primary)]">
           My Skills
         </h2>
         <p className="text-lg md:text-2xl mb-8 text-[var(--text-primary)]">

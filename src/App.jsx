@@ -19,23 +19,28 @@ const App = () => {
       projects: "projects",
       contact: "contact",
     };
-
+  
     const sectionElement = document.getElementById(sectionRefs[section]);
-
+  
     if (sectionElement) {
       // Get the height of the fixed header
       const headerHeight = document.querySelector("header")?.offsetHeight || 0;
-
-      // Adjust the scroll position to account for any top margin/padding in the section or content
+  
+      // Define additional margin for mobile (you can adjust the value as needed)
+      const mobileOffset = 20; // Example value, adjust as needed
+  
+      // Check if it's a mobile device
+      const isMobile = window.innerWidth <= 768; // Consider mobile as screens <= 768px
       const sectionTop = sectionElement.offsetTop;
-
-      // Scroll to the section, with offset for fixed header and optional adjustments
+  
       window.scrollTo({
-        top: sectionTop - headerHeight, // Subtract header height to avoid overlap
+        top: isMobile
+          ? sectionTop - mobileOffset // Add a gap on mobile
+          : sectionTop - headerHeight, // Use header height for non-mobile
         behavior: "smooth",
       });
     }
-  };
+  };  
 
   return (
     <MenuProvider>

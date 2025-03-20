@@ -27,26 +27,26 @@
   {
     "icon": "/assets/icons8-figma-48.png",
     "skillName": "Figma",
-    "tooltip": "Structuring Web Pages with HTML5"
+    "tooltip": "Designing User Interfaces and Prototypes with Figma"
   },
   {
     "icon": "/assets/icons8-blender-48.png",
     "skillName": "Blender",
-    "tooltip": "Structuring Web Pages with HTML5"
+    "tooltip": "Creating 3D Models and Animations with Blender"
   },
   {
     "icon": "/assets/icons8-3ds-max-48.png",
     "skillName": "3ds Max",
-    "tooltip": "Structuring Web Pages with HTML5"
+    "tooltip": "3D Modeling and Animation with 3ds Max"
   },
   {
     "icon": "assets/icons8-unreal-engine-48.png",
     "skillName": "Unreal Engine",
-    "tooltip": "Structuring Web Pages with HTML5"
+    "tooltip": "Building Immersive 3D Games and Experiences with Unreal Engine"
   },
   {
     "icon": "/assets/icons8-photoshop-48.png",
     "skillName": "Photoshop",
-    "tooltip": "Structuring Web Pages with HTML5"
+    "tooltip": "Photo Editing and Graphic Design with Photoshop"
   }
 ]
