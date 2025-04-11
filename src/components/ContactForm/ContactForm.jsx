@@ -111,12 +111,13 @@ export default function ContactForm() {
 
         {/* Submit Button */}
         <button
-          type="submit"
-          disabled={status === "Sending..."}
-          className="px-6 py-3 text-white bg-[var(--primary)] text-lg md:text-xl hover:bg-[var(--accent)] rounded-4xl transition mx-auto"
-        >
-          {status === "Sending..." ? "Sending..." : "Send Message"}
-        </button>
+  type="submit"
+  disabled={status === "Sending..."}
+  className="px-6 py-3 text-white bg-[var(--primary)] text-lg md:text-xl hover:bg-[var(--secondary)] focus:outline-none transition duration-300 rounded-4xl mx-auto"
+>
+  {status === "Sending..." ? "Sending..." : "Send Message"}
+</button>
+
       </form>
     </section>
   );

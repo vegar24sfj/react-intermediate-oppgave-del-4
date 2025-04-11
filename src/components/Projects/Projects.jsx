@@ -22,7 +22,7 @@ const Projects = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button className="bg-[var(--primary)] text-white text-lg md:text-2xl py-3 px-8 rounded-4xl hover:bg-[var(--accent)] transition">
+            <button className="bg-[var(--primary)] text-white text-lg md:text-2xl py-3 px-8 rounded-4xl hover:bg-[var(--secondary)] focus:outline-none transition duration-300">
               View My ArtStation Portfolio
             </button>
           </a>
@@ -33,7 +33,7 @@ const Projects = () => {
             target="_blank"
             rel="noopener noreferrer"
           >
-            <button className="bg-[var(--primary)] text-white text-lg md:text-2xl py-3 px-8 rounded-4xl hover:bg-[var(--accent)] transition">
+            <button className="bg-[var(--primary)] text-white text-lg md:text-2xl py-3 px-8 rounded-4xl hover:bg-[var(--secondary)] focus:outline-none transition duration-300">
               Visit My Web Store
             </button>
           </a>

@@ -14,7 +14,7 @@ const Header = ({ scrollToSection }) => {
         <div className="flex items-center space-x-6">
           <a href="#" className="flex items-center">
             <img
-              src="/assets/logo.jpeg"
+              src="/assets/logo.jpg"
               alt="Logo"
               className="h-10 w-auto transform scale-100"
             />
