@@ -54,8 +54,10 @@ export default function ContactForm() {
           </div>
         )}
 
-        <h2 className="text-[var(--primary)] text-2xl md:text-3xl font-bold mb-6 text-center">
+        <h2 className="text-[var(--primary)] text-2xl md:text-3xl font-bold mb-6 text-center relative">
           Contact Me
+          {/* Thick underline */}
+          <span className="absolute bottom-[-10px] left-0 right-0 mx-auto w-24 h-[5px] bg-[var(--primary)]"></span>
         </h2>
 
         {/* Message */}
@@ -111,13 +113,12 @@ export default function ContactForm() {
 
         {/* Submit Button */}
         <button
-  type="submit"
-  disabled={status === "Sending..."}
-  className="px-6 py-3 text-white bg-[var(--primary)] text-lg md:text-xl hover:bg-[var(--secondary)] focus:outline-none transition duration-300 rounded-4xl mx-auto"
->
-  {status === "Sending..." ? "Sending..." : "Send Message"}
-</button>
-
+          type="submit"
+          disabled={status === "Sending..."}
+          className="px-6 py-3 text-white bg-[var(--primary)] text-lg md:text-xl hover:bg-[var(--secondary)] focus:outline-none transition duration-300 rounded-4xl mx-auto"
+        >
+          {status === "Sending..." ? "Sending..." : "Send Message"}
+        </button>
       </form>
     </section>
   );

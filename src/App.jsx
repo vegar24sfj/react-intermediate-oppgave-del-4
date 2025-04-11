@@ -19,20 +19,20 @@ const App = () => {
       projects: "projects",
       contact: "contact",
     };
-  
+
     const sectionElement = document.getElementById(sectionRefs[section]);
-  
+
     if (sectionElement) {
       // Get the height of the fixed header
       const headerHeight = document.querySelector("header")?.offsetHeight || 0;
-  
+
       // Define additional margin for mobile (you can adjust the value as needed)
       const mobileOffset = 20; // Example value, adjust as needed
-  
+
       // Check if it's a mobile device
       const isMobile = window.innerWidth <= 768; // Consider mobile as screens <= 768px
       const sectionTop = sectionElement.offsetTop;
-  
+
       window.scrollTo({
         top: isMobile
           ? sectionTop - mobileOffset // Add a gap on mobile
@@ -40,7 +40,7 @@ const App = () => {
         behavior: "smooth",
       });
     }
-  };  
+  };
 
   return (
     <MenuProvider>
@@ -63,7 +63,8 @@ const App = () => {
               <Contact />
             </div>
           </div>
-          <Footer />
+          <Footer scrollToSection={scrollToSection} />{" "}
+          {/* Pass scrollToSection to Footer */}
         </div>
       </ContactProvider>
     </MenuProvider>

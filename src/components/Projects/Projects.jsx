@@ -7,8 +7,10 @@ const Projects = () => {
       className="bg-[var(--bg-primary)] text-center py-16 px-4 md:px-32"
     >
       <div className="container mx-auto">
-        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-[var(--primary)]">
+        <h2 className="text-2xl md:text-3xl font-bold mb-6 text-[var(--primary)] relative">
           My Projects
+          {/* Thick underline */}
+          <span className="absolute bottom-[-10px] left-0 right-0 mx-auto w-24 h-[5px] bg-[var(--primary)]"></span>
         </h2>
         <p className="text-lg md:text-2xl mb-8 text-[var(--text-primary)]">
           Check out some of my work on my ArtStation portfolio and Web Store!

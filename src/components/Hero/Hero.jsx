@@ -13,10 +13,10 @@ const Hero = ({ scrollToSection }) => {
       }}
     >
       <div className="text-center sm:px-8">
-        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-[var(text--secondary)] mb-4 sm:mb-6 tracking-tight text-shadow">
+        <h1 className="text-5xl sm:text-6xl lg:text-7xl font-extrabold text-[var(text--secondary)] mb-4 sm:mb-6 tracking-tight">
           Hi, I'm a Frontend Developer
         </h1>
-        <p className="text-xl sm:text-2xl lg:text-2xl text-[var(text--primary)] mb-4 sm:mb-6 text-shadow-sm">
+        <p className="text-xl sm:text-2xl lg:text-2xl text-[var(text--primary)] mb-4 sm:mb-6">
           Passionate about 3D design, web development, and creating interactive
           user experiences.
         </p>
