@@ -24,7 +24,7 @@ const Header = ({ scrollToSection }) => {
         </div>
 
         {/* Desktop Menu */}
-        <div className="hidden md:flex flex-grow justify-center mt-4">
+        <div className="hidden md:flex flex-grow justify-center my-2">
           <NavBar scrollToSection={scrollToSection} />
         </div>
 
