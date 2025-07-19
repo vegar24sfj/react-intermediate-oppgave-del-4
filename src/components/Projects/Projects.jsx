@@ -4,7 +4,7 @@ const Projects = () => {
   return (
     <section
       id="projects"
-      className="bg-[var(--bg-primary)] text-center py-16 px-4 md:px-32"
+      className="bg-yellow-50 text-center py-16 px-4 md:px-32"
     >
       <div className="container mx-auto">
         <h2 className="text-2xl md:text-3xl font-bold mb-6 text-[var(--primary)] relative">

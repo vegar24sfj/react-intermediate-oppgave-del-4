@@ -2,7 +2,7 @@ import React from "react";
 
 const AboutPage = () => {
   return (
-    <section id="about" className="py-16 px-4 md:px-32 bg-[var(--bg-primary)]">
+    <section id="about" className="py-16 px-4 md:px-32 bg-teal-50">
       <h2 className="text-2xl md:text-3xl font-bold mb-6 text-[var(--primary)] text-center relative">
         About Me
         <span className="absolute bottom-[-10px] left-0 right-0 mx-auto w-24 h-[5px] bg-[var(--primary)]"></span>
