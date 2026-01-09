@@ -1,9 +1,8 @@
 import React from "react";
 import { useContact } from "./ContactContext";
-import { InputField } from "./InputFields";
 
 export default function ContactForm() {
-  const { formData, setFormData, status, setStatus } = useContact(); // Use context values
+  const { formData, setFormData, status, setStatus } = useContact();
 
   const handleChange = (e) => {
     setFormData({
@@ -19,45 +18,44 @@ export default function ContactForm() {
     try {
       const res = await fetch("http://localhost:5000/api/contact", {
         method: "POST",
-        headers: {
-          "Content-Type": "application/json",
-        },
+        headers: { "Content-Type": "application/json" },
         body: JSON.stringify(formData),
       });
 
       if (res.ok) {
         setStatus("Your message has been sent successfully!");
-        setFormData({ name: "", email: "", subject: "", message: "" }); // Clear form on success
+        setFormData({ name: "", email: "", subject: "", message: "" });
       } else {
         const data = await res.json();
         setStatus(data.error || "Something went wrong.");
       }
-    } catch (err) {
+    } catch {
       setStatus("Failed to send message. Please try again later.");
     }
   };
 
   return (
-    <section
-      id="contact" // Section with the ID for scrolling
-      className="w-full bg-[var(--bg-primary)] py-16" // Set background color for the section
-    >
+    <section id="contact" className="py-16 px-4 md:px-12">
       <form
         onSubmit={handleSubmit}
-        className="w-full max-w-3xl flex flex-col justify-center mx-auto bg-[var(--bg-primary)] rounded-md px-6 mb-0" // Adjust max width to 3xl
+        className="w-full max-w-3xl mx-auto flex flex-col justify-center gap-4"
       >
         {status && (
           <div
-            className={`p-3 mb-4 rounded-md ${status.startsWith("Your message") ? "text-green-800 bg-green-100" : "text-red-800 bg-red-100"}`}
+            className={`p-3 rounded-md ${
+              status.startsWith("Your message")
+                ? "text-green-800 bg-green-100"
+                : "text-red-800 bg-red-100"
+            }`}
           >
             {status}
           </div>
         )}
 
-        <h2 className="text-[var(--primary)] text-2xl md:text-3xl font-bold mb-6 text-center relative">
+        {/* Section Title */}
+        <h2 className="text-2xl md:text-3xl font-medium mb-10 text-[var(--text-primary)] text-center relative font-helvetica">
           Contact Me
-          {/* Thick underline */}
-          <span className="absolute bottom-[-10px] left-0 right-0 mx-auto w-24 h-[5px] bg-[var(--primary)]"></span>
+          <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-12 h-[2px] bg-[var(--primary)]"></span>
         </h2>
 
         {/* Message */}
@@ -66,38 +64,31 @@ export default function ContactForm() {
           placeholder="Your message"
           value={formData.message}
           onChange={handleChange}
-          className="text-[var(--text-primary)] bg-[var(--bg-secondary)] border-gray-300 border-[1px] focus:border-[var(--accent)] focus:outline-none w-full px-4 py-2 rounded-3xl focus:ring-2 focus:ring-[var(--accent)] mb-4"
+          className="text-body font-helvetica bg-[var(--bg-secondary)] border border-gray-300 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)] w-full px-4 py-3 rounded-3xl resize-none"
           required
-          rows="10"
+          rows="6"
         />
 
-        {/* Name and Email Section */}
-        <div className="flex gap-6 mb-4">
-          {/* Name Input */}
-          <div className="flex-1">
-            <input
-              type="text"
-              name="name"
-              placeholder="Your name"
-              value={formData.name}
-              onChange={handleChange}
-              className="text-[var(--text-primary)] bg-[var(--bg-secondary)] border-gray-300 border-[1px] focus:border-[var(--accent)] focus:outline-none w-full px-4 py-2.5 rounded-3xl focus:ring-2 focus:ring-[var(--accent)]"
-              required
-            />
-          </div>
-
-          {/* Email Input */}
-          <div className="flex-1">
-            <input
-              type="email"
-              name="email"
-              placeholder="Your email"
-              value={formData.email}
-              onChange={handleChange}
-              className="text-[var(--text-primary)] bg-[var(--bg-secondary)] border-gray-300 border-[1px] focus:border-[var(--accent)] focus:outline-none w-full px-4 py-2.5 rounded-3xl focus:ring-2 focus:ring-[var(--accent)]"
-              required
-            />
-          </div>
+        {/* Name & Email */}
+        <div className="flex flex-col md:flex-row gap-4">
+          <input
+            type="text"
+            name="name"
+            placeholder="Your name"
+            value={formData.name}
+            onChange={handleChange}
+            className="text-body font-helvetica bg-[var(--bg-secondary)] border border-gray-300 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)] w-full px-4 py-3 rounded-3xl"
+            required
+          />
+          <input
+            type="email"
+            name="email"
+            placeholder="Your email"
+            value={formData.email}
+            onChange={handleChange}
+            className="text-body font-helvetica bg-[var(--bg-secondary)] border border-gray-300 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)] w-full px-4 py-3 rounded-3xl"
+            required
+          />
         </div>
 
         {/* Subject */}
@@ -107,15 +98,15 @@ export default function ContactForm() {
           placeholder="Subject"
           value={formData.subject}
           onChange={handleChange}
-          className="text-[var(--text-primary)] bg-[var(--bg-secondary)] border-gray-300 border-[1px] focus:border-[var(--accent)] focus:outline-none w-full px-4 py-2.5 rounded-3xl focus:ring-2 focus:ring-[var(--accent)] mb-4"
+          className="text-body font-helvetica bg-[var(--bg-secondary)] border border-gray-300 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)] w-full px-4 py-3 rounded-3xl"
           required
         />
 
-        {/* Submit Button */}
+        {/* Submit */}
         <button
           type="submit"
           disabled={status === "Sending..."}
-          className="px-6 py-3 text-white bg-[var(--primary)] text-lg md:text-xl hover:bg-[var(--secondary)] focus:outline-none transition duration-300 rounded-4xl mx-auto"
+          className="bg-[var(--primary)] text-white text-body py-3 px-8 rounded-4xl hover:bg-[var(--secondary)] transition duration-300 mx-auto mt-4"
         >
           {status === "Sending..." ? "Sending..." : "Send Message"}
         </button>

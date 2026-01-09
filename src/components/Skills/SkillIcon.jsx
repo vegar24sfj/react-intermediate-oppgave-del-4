@@ -7,7 +7,10 @@ const SkillIcon = ({ icon, skillName, tooltip }) => {
       title={tooltip}
     >
       <img src={icon} alt={skillName} className="w-8 h-8 mb-2" />
-      <p className="text-lg md:text-2xl">{skillName}</p>
+      <p className="text-menu font-helvetica text-[var(--text-primary)]">
+  {skillName}
+</p>
+
     </div>
   );
 };
