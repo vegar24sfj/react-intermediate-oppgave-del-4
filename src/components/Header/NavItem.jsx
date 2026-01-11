@@ -2,7 +2,7 @@ import React from "react";
 
 const NavItem = ({ text, onClick }) => {
   return (
-    <li className="nav-item list-none">
+    <li className="list-none nav-item">
       <button
         onClick={onClick}
         aria-label={`Navigate to ${text}`}

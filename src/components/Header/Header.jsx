@@ -9,27 +9,27 @@ const Header = ({ scrollToSection }) => {
 
   return (
     <header className="fixed top-0 left-0 w-full bg-white text-[var(--text-primary)] shadow-[0_4px_24px_1px_rgba(0,0,0,0.1)] z-10">
-      <div className="w-full mx-auto py-4 px-4 lg:px-12 flex justify-between items-center h-full m-0 p-0"> {/* Ensure this div stretches full width */}
+      <div className="flex items-center justify-between w-full h-full p-0 px-4 py-4 m-0 mx-auto lg:px-12">
+        {" "}
+        {/* Ensure this div stretches full width */}
         {/* Logo Container */}
         <div className="flex items-center space-x-6">
           <a href="#" className="flex items-center">
             <img
               src="/assets/logo.jpg"
               alt="Logo"
-              className="h-10 w-auto transform scale-100"
+              className="w-auto h-10 transform scale-100"
             />
             {/* Keep the text visible on mobile */}
-            <h1 className="text-xl font-bold ml-4 md:block">vegarravndal</h1>
+            <h1 className="ml-4 text-xl font-bold md:block">vegarravndal</h1>
           </a>
         </div>
-
         {/* Desktop Menu */}
-        <div className="hidden md:flex flex-grow justify-center my-2">
+        <div className="justify-center flex-grow hidden my-2 md:flex">
           <NavBar scrollToSection={scrollToSection} />
         </div>
-
         {/* Mobile Hamburger Menu */}
-        <div className="md:hidden flex items-center ml-auto">
+        <div className="flex items-center ml-auto md:hidden">
           <HamburgerBar
             scrollToSection={scrollToSection}
             toggleMenu={toggleMenu}
@@ -40,7 +40,7 @@ const Header = ({ scrollToSection }) => {
 
       {/* Mobile menu (conditionally rendered based on `menuOpen`) */}
       {menuOpen && (
-        <div className="md:hidden flex flex-col items-center bg-white shadow-lg py-4">
+        <div className="flex flex-col items-center py-4 bg-white shadow-lg md:hidden">
           <NavBar scrollToSection={scrollToSection} />
         </div>
       )}

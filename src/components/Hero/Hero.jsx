@@ -9,7 +9,7 @@ const Hero = ({ scrollToSection }) => {
     <section
       className="relative w-full h-[60vh] sm:h-[70vh] flex items-center justify-center mt-[var(--header-height)] px-4"
       style={{
-        background: 'linear-gradient(to bottom, #f0f9ff, #e0e7ff)', // veldig lys blå
+        background: "linear-gradient(to bottom, #f0f9ff, #e0e7ff)", // veldig lys blå
       }}
     >
       <div className="text-center sm:px-8">

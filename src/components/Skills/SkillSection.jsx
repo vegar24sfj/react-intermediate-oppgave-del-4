@@ -4,9 +4,9 @@ import skillsData from "../../data/Skills.json";
 
 const SkillSection = () => {
   return (
-    <section id="skills" className="py-16 px-4 md:px-12">
-      <div className="container mx-auto text-center relative">
-        <h2 className="text-2xl md:text-3xl font-medium mb-10 text-[var(--text-primary)] text-center relative font-helvetica">
+    <section id="skills" className="px-4 py-16 md:px-12">
+      <div className="container relative mx-auto text-center">
+        <h2 className="text-2xl md:text-3xl font-medium mb-10 text-[var(--text-primary)] relative font-helvetica">
           My Skills
           <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-12 h-[2px] bg-[var(--primary)]"></span>
         </h2>
@@ -15,7 +15,7 @@ const SkillSection = () => {
           Here is a list of the technologies and skills I master:
         </p>
 
-        <div className="flex flex-wrap justify-center gap-8">
+        <div className="flex justify-center items-center gap-[2px] flex-nowrap overflow-x-auto">
           {skillsData.map((skill, index) => (
             <SkillIcon
               key={index}

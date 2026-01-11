@@ -2,8 +2,8 @@ import React from "react";
 
 const AboutPage = () => {
   return (
-    <section id="about" className="py-16 px-4 md:px-12">
-      <div className="container mx-auto text-center relative">
+    <section id="about" className="px-4 py-16 md:px-12">
+      <div className="container relative mx-auto text-center">
         <h2 className="text-2xl md:text-3xl font-medium mb-10 text-[var(--text-primary)] relative font-helvetica">
           About Me
           {/* Thin underline like My Skills */}
@@ -13,8 +13,8 @@ const AboutPage = () => {
         <div className="text-left max-w-2xl mx-auto text-body font-helvetica text-[var(--text-primary)] leading-[1.7]">
           <p className="mb-6">
             Hello! I’m a frontend developer with a passion for 3D design and web
-            development. I specialize in creating visually stunning, user-friendly
-            websites and immersive 3D experiences.
+            development. I specialize in creating visually stunning,
+            user-friendly websites and immersive 3D experiences.
           </p>
 
           <p className="mb-6">
@@ -24,9 +24,7 @@ const AboutPage = () => {
             experiences.
           </p>
 
-          <p>
-            In my free time, I enjoy exploring 3D modeling and animation.
-          </p>
+          <p>In my free time, I enjoy exploring 3D modeling and animation.</p>
         </div>
       </div>
     </section>
