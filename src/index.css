@@ -3,15 +3,17 @@
 @import "tailwindcss";
 
 :root {
-  --primary: #345ad4; /* Primary color */
-  --secondary: #819bed; /* Secondary color */
-  --accent: #d8d8d8; /* Accent color */
-  --text-primary: #0a0a0a; /* Primary text color */
-  --text-secondary: #333333; /* Secondary text color */
-  --bg-primary: #ffffff; /* Background color */
-  --bg-secondary: #edf2f7; /* Secondary background color */
+  --primary: #345ad4;
+  --secondary: #819bed;
+  --accent: #d8d8d8;
+  --text-primary: #0a0a0a;
+  --text-secondary: #333333;
+  --bg-primary: #ffffff;
+  --bg-secondary: #edf2f7;
+  --header-height: 76px;
 
-  --header-height: 76px; /* Replace with the actual height of your header */
+  /* Ny shadow-variabel */
+  --box-shadow: 0 4px 24px 1px rgba(0, 0, 0, 0.1);
 }
 
 body {

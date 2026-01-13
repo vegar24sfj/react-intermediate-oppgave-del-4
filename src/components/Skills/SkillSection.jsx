@@ -3,7 +3,7 @@ import skillsData from "../../data/Skills.json"; // Pass på at stien stemmer
 
 const SkillSection = () => {
   return (
-    <section id="skills" className="px-4 py-20 bg-white md:px-12">
+    <section id="skills" className="px-4 py-20 md:px-12 scroll-mt-[76px]">
       <div className="max-w-6xl mx-auto text-center">
         {/* Heading */}
         <h2 className="
@@ -27,7 +27,7 @@ const SkillSection = () => {
           {skillsData.map((skill, index) => (
             <div
               key={index}
-              className="flex flex-col items-center transition-transform duration-300 transform  hover:-translate-y-2 hover:scale-110"
+              className="flex flex-col items-center transition-transform duration-300 transform hover:-translate-y-2 hover:scale-110"
               title={skill.tooltip || skill.skillName}
             >
               <img

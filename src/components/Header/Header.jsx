@@ -1,33 +1,37 @@
-import React, { useState, forwardRef } from "react";
+import React, { useState } from "react";
 import NavBar from "./NavBar";
 import HamburgerBar from "./HamburgerBar";
 
-const Header = forwardRef(({ scrollToSection }, ref) => {
+const Header = ({ scrollToSection }) => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   const toggleMenu = () => setMenuOpen((prev) => !prev);
 
   return (
     <header
-      ref={ref}
-      className="fixed top-0 left-0 w-full bg-white text-[var(--text-primary)] shadow-md z-50"
+      className="fixed top-0 left-0 w-full bg-white text-[var(--text-primary)] z-10"
+      style={{ boxShadow: "var(--box-shadow)" }}
     >
-      <div className="flex items-center justify-between w-full h-full p-4 mx-auto lg:px-12">
+      <div className="flex items-center justify-between w-full h-full p-0 px-4 py-4 m-0 mx-auto lg:px-12">
         {/* Logo */}
-        <div className="flex items-center space-x-4">
+        <div className="flex items-center space-x-6">
           <a href="#" className="flex items-center">
-            <img src="/assets/logo.jpg" alt="Logo" className="w-auto h-10" />
-            <h1 className="ml-2 text-xl font-bold md:block">vegarravndal</h1>
+            <img
+              src="/assets/logo.jpg"
+              alt="Logo"
+              className="w-auto h-10 transform scale-100"
+            />
+            <h1 className="ml-4 text-xl font-bold md:block">vegarravndal</h1>
           </a>
         </div>
 
-        {/* Desktop menu */}
+        {/* Desktop Menu */}
         <div className="justify-center flex-grow hidden my-2 md:flex">
           <NavBar scrollToSection={scrollToSection} />
         </div>
 
-        {/* Mobile menu */}
-        <div className="flex items-center md:hidden">
+        {/* Mobile Hamburger Menu */}
+        <div className="flex items-center ml-auto md:hidden">
           <HamburgerBar
             scrollToSection={scrollToSection}
             toggleMenu={toggleMenu}
@@ -36,7 +40,7 @@ const Header = forwardRef(({ scrollToSection }, ref) => {
         </div>
       </div>
 
-      {/* Mobile menu dropdown */}
+      {/* Mobile menu */}
       {menuOpen && (
         <div className="flex flex-col items-center py-4 bg-white shadow-lg md:hidden">
           <NavBar scrollToSection={scrollToSection} />
@@ -44,6 +48,6 @@ const Header = forwardRef(({ scrollToSection }, ref) => {
       )}
     </header>
   );
-});
+};
 
 export default Header;

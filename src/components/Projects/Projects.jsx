@@ -18,7 +18,7 @@ const projectsData = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="px-4 py-20 bg-white md:px-12">
+    <section id="projects" className="px-4 py-20 md:px-12 scroll-mt-[76px]">
       <div className="max-w-6xl mx-auto text-center">
         {/* Heading */}
         <h2 className="
