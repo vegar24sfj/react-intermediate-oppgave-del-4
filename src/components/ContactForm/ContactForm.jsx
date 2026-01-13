@@ -1,6 +1,57 @@
 import React from "react";
 import { useContact } from "./ContactContext";
 
+// Statusmelding-komponent
+const StatusMessage = ({ status }) => {
+  if (!status) return null;
+  const success = status.startsWith("Your message");
+  return (
+    <div
+      className={`p-3 rounded-md mb-4 ${
+        success ? "text-green-800 bg-green-100" : "text-red-800 bg-red-100"
+      }`}
+    >
+      {status}
+    </div>
+  );
+};
+
+// Gjenbrukbart input/textarea-felt
+export const InputField = ({
+  name,
+  type,
+  placeholder,
+  value,
+  onChange,
+  children,
+  className = "",
+}) => {
+  const InputComponent = type === "textarea" ? "textarea" : "input";
+  return (
+    <div className="w-full mb-4">
+      {children && (
+        <label
+          htmlFor={name}
+          className="block font-semibold mb-2 text-[var(--text-primary)]"
+        >
+          {children}
+        </label>
+      )}
+      <InputComponent
+        type={type === "textarea" ? undefined : type}
+        name={name}
+        id={name}
+        className={`text-[var(--text-primary)] bg-[var(--bg-secondary)] border border-gray-300 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)] w-full px-4 py-3 rounded-3xl resize-none ${className}`}
+        placeholder={placeholder}
+        value={value}
+        onChange={onChange}
+        required
+        rows={type === "textarea" ? 6 : undefined}
+      />
+    </div>
+  );
+};
+
 export default function ContactForm() {
   const { formData, setFormData, status, setStatus } = useContact();
 
@@ -35,82 +86,75 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contact" className="py-16 px-4 md:px-12">
-      <form
-        onSubmit={handleSubmit}
-        className="w-full max-w-3xl mx-auto flex flex-col justify-center gap-4"
-      >
-        {status && (
-          <div
-            className={`p-3 rounded-md ${
-              status.startsWith("Your message")
-                ? "text-green-800 bg-green-100"
-                : "text-red-800 bg-red-100"
-            }`}
-          >
-            {status}
-          </div>
-        )}
-
-        {/* Section Title */}
+    <section id="contact" className="px-4 py-16 md:px-12">
+      <div className="max-w-3xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-medium mb-10 text-[var(--text-primary)] text-center relative font-helvetica">
           Contact Me
           <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-12 h-[2px] bg-[var(--primary)]"></span>
         </h2>
 
-        {/* Message */}
-        <textarea
-          name="message"
-          placeholder="Your message"
-          value={formData.message}
-          onChange={handleChange}
-          className="text-body font-helvetica bg-[var(--bg-secondary)] border border-gray-300 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)] w-full px-4 py-3 rounded-3xl resize-none"
-          required
-          rows="6"
-        />
+        {/* Statusmelding */}
+        <StatusMessage status={status} />
 
-        {/* Name & Email */}
-        <div className="flex flex-col md:flex-row gap-4">
-          <input
+        <form onSubmit={handleSubmit} className="flex flex-col gap-4">
+          {/* Message */}
+          <InputField
+            name="message"
+            type="textarea"
+            placeholder="Your message"
+            value={formData.message}
+            onChange={handleChange}
+          >
+            Message
+          </InputField>
+
+          {/* Name + Email */}
+          <div className="flex flex-col gap-4 md:flex-row">
+            <InputField
+              name="name"
+              type="text"
+              placeholder="Your name"
+              value={formData.name}
+              onChange={handleChange}
+            >
+              Name
+            </InputField>
+
+            <InputField
+              name="email"
+              type="email"
+              placeholder="Your email"
+              value={formData.email}
+              onChange={handleChange}
+            >
+              Email
+            </InputField>
+          </div>
+
+          {/* Subject */}
+          <InputField
+            name="subject"
             type="text"
-            name="name"
-            placeholder="Your name"
-            value={formData.name}
+            placeholder="Subject"
+            value={formData.subject}
             onChange={handleChange}
-            className="text-body font-helvetica bg-[var(--bg-secondary)] border border-gray-300 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)] w-full px-4 py-3 rounded-3xl"
-            required
-          />
-          <input
-            type="email"
-            name="email"
-            placeholder="Your email"
-            value={formData.email}
-            onChange={handleChange}
-            className="text-body font-helvetica bg-[var(--bg-secondary)] border border-gray-300 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)] w-full px-4 py-3 rounded-3xl"
-            required
-          />
-        </div>
+          >
+            Subject
+          </InputField>
 
-        {/* Subject */}
-        <input
-          type="text"
-          name="subject"
-          placeholder="Subject"
-          value={formData.subject}
-          onChange={handleChange}
-          className="text-body font-helvetica bg-[var(--bg-secondary)] border border-gray-300 focus:border-[var(--accent)] focus:ring-2 focus:ring-[var(--accent)] w-full px-4 py-3 rounded-3xl"
-          required
-        />
-
-        {/* Submit */}
-        <button
-          type="submit"
-          disabled={status === "Sending..."}
-          className="bg-[var(--primary)] text-white text-body py-3 px-8 rounded-4xl hover:bg-[var(--secondary)] transition duration-300 mx-auto mt-4"
-        >
-          {status === "Sending..." ? "Sending..." : "Send Message"}
-        </button>
-      </form>
+          {/* Submit */}
+          <button
+            type="submit"
+            disabled={status === "Sending..."}
+            className="bg-[var(--primary)] text-white text-body py-3 px-8 rounded-4xl hover:bg-[var(--secondary)] transition duration-300 mx-auto mt-4 flex items-center justify-center gap-2"
+          >
+            {status === "Sending..." && (
+              <span className="w-4 h-4 border-2 border-white rounded-full border-t-transparent animate-spin"></span>
+            )}
+            {status === "Sending..." ? "Sending..." : "Send Message"}
+          </button>
+        </form>
+      </div>
     </section>
   );
 }
