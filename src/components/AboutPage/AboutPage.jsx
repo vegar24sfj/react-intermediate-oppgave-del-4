@@ -42,7 +42,7 @@ const AboutPage = () => {
 
           {/* Highlight box */}
           <div
-            className="p-6 text-left border border-gray-200  bg-gray-50 rounded-xl font-helvetica"
+            className="p-6 text-left border border-gray-200 bg-gray-50 rounded-xl font-helvetica"
           >
             <ul className="space-y-4 text-[var(--text-primary)]">
               <li>
@@ -53,7 +53,7 @@ const AboutPage = () => {
               </li>
               <li>
                 <span className="font-medium">Tech:</span> React, JavaScript,
-                Three.js
+                Node.js
               </li>
               <li>
                 <span className="font-medium">Interests:</span> UI, animation,

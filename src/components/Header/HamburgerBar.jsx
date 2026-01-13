@@ -1,18 +1,17 @@
-import React, { useEffect, useRef } from "react";
+import React, { useEffect, useRef, useState } from "react";
 import { GiHamburgerMenu } from "react-icons/gi";
 import { IoCloseSharp } from "react-icons/io5";
-import { MENU_LIST } from "../../data/menu_data";
+import { MENU_LIST } from "./menu_data"; // Samme data som NavBar
 import NavItem from "./NavItem";
 
-const HamburgerBar = ({ scrollToSection, toggleMenu, menuOpen, headerHeight }) => {
+const HamburgerBar = ({ scrollToSection, toggleMenu, menuOpen }) => {
   const menuRef = useRef(null);
   const buttonRef = useRef(null);
 
-  // Close menu when clicking outside
+  // Close menu if clicked outside
   useEffect(() => {
     const handleClickOutside = (event) => {
       if (
-        menuOpen &&
         menuRef.current &&
         !menuRef.current.contains(event.target) &&
         !buttonRef.current.contains(event.target)
@@ -22,35 +21,41 @@ const HamburgerBar = ({ scrollToSection, toggleMenu, menuOpen, headerHeight }) =
     };
     document.addEventListener("click", handleClickOutside);
     return () => document.removeEventListener("click", handleClickOutside);
-  }, [menuOpen, toggleMenu]);
+  }, [toggleMenu]);
 
   const handleMenuItemClick = (section) => {
-    scrollToSection(section);
-    toggleMenu();
+    scrollToSection(section); // Scroll to section
+    toggleMenu(); // Close menu
   };
 
   return (
-    <div className="flex items-center md:hidden">
-      <button ref={buttonRef} onClick={toggleMenu} className="flex items-center">
+    <div className="relative flex items-center justify-center md:hidden">
+      {/* Hamburger icon */}
+      <button
+        ref={buttonRef}
+        onClick={toggleMenu}
+        className="flex items-center justify-center"
+      >
         <GiHamburgerMenu className="h-10 w-10 text-[var(--text-primary)]" />
       </button>
 
+      {/* Menu when open */}
       {menuOpen && (
         <div
           ref={menuRef}
-          className="absolute left-0 z-50 w-full transition-transform duration-300 bg-white"
-          style={{ top: `${headerHeight}px` }}
+          className="absolute left-0 z-50 w-full p-6 bg-white shadow-lg top-full"
         >
-          <button onClick={toggleMenu}>
-            <IoCloseSharp className="h-10 w-10 absolute right-4 top-6 text-[var(--text-primary)]" />
+          {/* Close icon */}
+          <button onClick={toggleMenu} className="absolute right-4 top-4">
+            <IoCloseSharp className="h-10 w-10 text-[var(--text-primary)]" />
           </button>
 
-          <nav className="flex flex-col gap-6 p-6 pt-16">
+          {/* Menu items */}
+          <nav className="flex flex-col gap-6 mt-12">
             {MENU_LIST.map((item, index) => (
               <NavItem
                 key={index}
                 text={item.text}
-                isPrimary={item.text.toLowerCase() === "contact"}
                 onClick={() => handleMenuItemClick(item.text.toLowerCase())}
               />
             ))}
