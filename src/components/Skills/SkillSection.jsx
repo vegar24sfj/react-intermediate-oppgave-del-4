@@ -3,7 +3,7 @@ import skillsData from "../../data/Skills.json"; // Pass på at stien stemmer
 
 const SkillSection = () => {
   return (
-    <section id="skills" className="px-4 py-20 md:px-12 scroll-mt-[76px]">
+    <section id="skills" className="px-4 pt-20 pb-0 md:px-12 scroll-mt-[76px]">
       <div className="max-w-6xl mx-auto text-center">
         {/* Heading */}
         <h2 className="

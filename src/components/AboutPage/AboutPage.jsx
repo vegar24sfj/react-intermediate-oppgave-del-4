@@ -4,7 +4,7 @@ const AboutPage = () => {
   return (
     <section
       id="about"
-      className="px-4 py-20 bg-white md:px-12 scroll-mt-[76px]"
+      className="px-4 pt-20 pb-0 md:px-12 scroll-mt-[76px]"
     >
       <div className="max-w-6xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-medium mb-14 text-center text-[var(--text-primary)] relative font-helvetica">

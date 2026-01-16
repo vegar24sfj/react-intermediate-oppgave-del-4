@@ -40,12 +40,6 @@ const Header = ({ scrollToSection }) => {
         </div>
       </div>
 
-      {/* Mobile menu */}
-      {menuOpen && (
-        <div className="flex flex-col items-center py-4 bg-white shadow-lg md:hidden">
-          <NavBar scrollToSection={scrollToSection} />
-        </div>
-      )}
     </header>
   );
 };

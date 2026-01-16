@@ -18,17 +18,19 @@ const projectsData = [
 
 const Projects = () => {
   return (
-    <section id="projects" className="px-4 py-20 md:px-12 scroll-mt-[76px]">
+    <section id="projects" className="px-4 pt-20 pb-0 md:px-12 scroll-mt-[76px]">
       <div className="max-w-6xl mx-auto text-center">
         {/* Heading */}
-        <h2 className="
+        <h2
+          className="
           text-2xl md:text-3xl
           font-medium
           mb-10
           text-[var(--text-primary)]
           relative
           font-helvetica
-        ">
+        "
+        >
           My Projects
           <span className="absolute -bottom-3 left-1/2 -translate-x-1/2 w-12 h-[2px] bg-[var(--primary)]"></span>
         </h2>
@@ -54,7 +56,9 @@ const Projects = () => {
               />
               <div className="p-4 text-left">
                 <h3 className="mb-2 text-lg font-semibold">{project.title}</h3>
-                <p className="text-sm text-[var(--text-primary)]">{project.description}</p>
+                <p className="text-sm text-[var(--text-primary)]">
+                  {project.description}
+                </p>
               </div>
             </a>
           ))}
