@@ -52,7 +52,7 @@ export const InputField = ({
   );
 };
 
-export default function ContactForm() {
+export default function ContactForm({ headerHeight = 64 }) {
   const { formData, setFormData, status, setStatus } = useContact();
 
   const handleChange = (e) => {
@@ -86,7 +86,11 @@ export default function ContactForm() {
   };
 
   return (
-    <section id="contact" className="px-4 py-20 md:px-12 scroll-mt-[76px]">
+    <section
+      id="contact"
+      className="px-4 py-20 md:px-12"
+      style={{ scrollMarginTop: headerHeight }} // Viktig for fixed header
+    >
       <div className="max-w-3xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-medium mb-10 text-[var(--text-primary)] text-center relative font-helvetica">
           Contact Me
@@ -97,7 +101,6 @@ export default function ContactForm() {
         <StatusMessage status={status} />
 
         <form onSubmit={handleSubmit} className="flex flex-col gap-4">
-          {/* Message */}
           <InputField
             name="message"
             type="textarea"
@@ -108,7 +111,6 @@ export default function ContactForm() {
             Message
           </InputField>
 
-          {/* Name + Email */}
           <div className="flex flex-col gap-4 md:flex-row">
             <InputField
               name="name"
@@ -131,7 +133,6 @@ export default function ContactForm() {
             </InputField>
           </div>
 
-          {/* Subject */}
           <InputField
             name="subject"
             type="text"
@@ -142,7 +143,6 @@ export default function ContactForm() {
             Subject
           </InputField>
 
-          {/* Submit */}
           <button
             type="submit"
             disabled={status === "Sending..."}

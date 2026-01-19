@@ -1,10 +1,13 @@
 import React from "react";
 
-const AboutPage = () => {
+const AboutPage = ({ headerHeight = 64 }) => {
   return (
     <section
       id="about"
-      className="px-4 pt-20 pb-0 md:px-12 scroll-mt-[76px]"
+      className="px-4 pt-20 pb-0 md:px-12"
+      style={{
+        scrollMarginTop: headerHeight, // Viktig for korrekt scroll
+      }}
     >
       <div className="max-w-6xl mx-auto">
         <h2 className="text-2xl md:text-3xl font-medium mb-14 text-center text-[var(--text-primary)] relative font-helvetica">

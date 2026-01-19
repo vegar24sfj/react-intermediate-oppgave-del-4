@@ -19,26 +19,25 @@ const App = () => {
     const section = document.getElementById(id);
     if (!section) return;
 
-    section.scrollIntoView({
-      behavior: "smooth",
-      block: "start",
-    });
+    // Beregn posisjon med offset for fixed header
+    const yOffset = headerHeight; 
+    const y = section.getBoundingClientRect().top + window.pageYOffset - yOffset;
+
+    window.scrollTo({ top: y, behavior: "smooth" });
   };
 
-  // Mål header-høyde dynamisk (kun for Hero padding)
+  // Mål header-høyde dynamisk (kun for Hero padding og scroll offset)
   useEffect(() => {
-    if (headerRef.current) {
-      setHeaderHeight(headerRef.current.offsetHeight);
-    }
-
-    const handleResize = () => {
+    const updateHeaderHeight = () => {
       if (headerRef.current) {
         setHeaderHeight(headerRef.current.offsetHeight);
       }
     };
 
-    window.addEventListener("resize", handleResize);
-    return () => window.removeEventListener("resize", handleResize);
+    updateHeaderHeight(); // init
+
+    window.addEventListener("resize", updateHeaderHeight);
+    return () => window.removeEventListener("resize", updateHeaderHeight);
   }, []);
 
   return (
@@ -50,11 +49,7 @@ const App = () => {
 
           {/* Main content */}
           <main className="flex-1">
-            <Hero
-              scrollToSection={scrollToSection}
-              headerHeight={headerHeight}
-            />
-
+            <Hero scrollToSection={scrollToSection} headerHeight={headerHeight} />
             <About />
             <Skills />
             <Projects />

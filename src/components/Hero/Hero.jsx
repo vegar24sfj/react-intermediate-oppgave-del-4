@@ -1,17 +1,18 @@
 import React from "react";
 
-const Hero = ({ scrollToSection, headerHeight }) => {
+const Hero = ({ scrollToSection, headerHeight = 64 }) => {
   return (
     <section
       id="home"
-      className="relative w-full flex items-center justify-center px-4 scroll-mt-[76px]"
+      className="relative flex items-center justify-center w-full px-4 overflow-hidden"
       style={{
-        background: "linear-gradient(to bottom, #f0f9ff, #e0e7ff)",
+        background: "linear-gradient(135deg, #dbeafe, #c7d2fe)",
         minHeight: "60vh",
-        paddingTop: headerHeight + 20, // ekstra padding
+        paddingTop: headerHeight, // Hero starter under header
+        scrollMarginTop: headerHeight, // viktig: scroll stopper under header
       }}
     >
-      <div className="max-w-3xl text-center">
+      <div className="relative z-10 max-w-3xl text-center">
         <h1 className="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-[var(--text-secondary)] mb-3 sm:mb-4 tracking-tight leading-tight">
           Hi, I'm a Frontend Developer
         </h1>
